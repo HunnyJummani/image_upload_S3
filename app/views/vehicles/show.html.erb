@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vehicle.name %>
+</p>
+<div>
+	<strong>Avatar:</strong>
+	<%= image_tag @vehicle.avatar.service_url, width: "20%" if @vehicle.avatar.attached? %>
+</div>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

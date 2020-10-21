@@ -1,0 +1,28 @@
+<%= form_with(model: vehicle, local: true) do |form| %>
+  <% if vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+        <% vehicle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, value: vehicle.avatar.filename.to_s %>
+  </div>
+  <% if  vehicle.avatar.attached? %>
+    <%= vehicle.avatar.filename %>
+    <%= image_tag vehicle.avatar.service_url, width: '10%', height: '10%' %>
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
