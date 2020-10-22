@@ -16,7 +16,7 @@
   </div>
   <div class="field">
     <%= form.label :avatar %>
-    <%= form.file_field :avatar, value: vehicle.avatar.filename.to_s %>
+    <%= form.file_field :avatar %>
   </div>
   <% if  vehicle.avatar.attached? %>
     <%= vehicle.avatar.filename %>
